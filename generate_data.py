@@ -23,9 +23,5 @@ purchase_data = purchase_data.merge(products, on='Product ID')
 # Step 4: Save to CSV
 purchase_data.to_csv('customer_purchases.csv', index=False)
 
-print("Dataset generated successfully!")
-
 # Load and verify
 df = pd.read_csv('customer_purchases.csv')
-print("\nSample of the dataset:")
-print(df.head())

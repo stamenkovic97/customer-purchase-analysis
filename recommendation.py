@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
-# Load data
 purchase_data = pd.read_csv('customer_purchases.csv')
 customer_segments = pd.read_csv('customer_segments.csv')
 
@@ -17,9 +16,6 @@ user_product_matrix = df.pivot_table(
     aggfunc='count',
     fill_value=0
 )
-
-print("User-Product Matrix Sample:")
-print(user_product_matrix.head())
 
 # Initialize the model
 model = NearestNeighbors(metric='cosine', n_neighbors=5)

@@ -4,19 +4,11 @@ import matplotlib.pyplot as plt
 # Load the dataset
 df = pd.read_csv('customer_purchases.csv')
 
-# Display first 5 rows to verify
-print("First 5 rows of the dataset:")
-print(df.head())
-
 # Top 10 products
 top_products = df['Product ID'].value_counts().head(10)
-print("\nTop 10 Selling Products:")
-print(top_products)
 
 # Top 5 categories
 top_categories = df['Category'].value_counts().head(5)
-print("\nTop 5 Selling Categories:")
-print(top_categories)
 
 # Visualize the results
 plt.figure(figsize=(10, 6))
@@ -36,16 +28,12 @@ plt.xlabel('Category')
 plt.ylabel('Number of Purchases')
 
 plt.tight_layout()
-plt.savefig('sales_analysis.png')  # Save the plot
+plt.savefig('sales_analysis.png')
 plt.show()
 
 # Average spending per customer
 avg_spending = df.groupby('Customer ID')['Purchase Amount'].mean().reset_index()
 avg_spending.columns = ['Customer ID', 'Average Spending']
-
-# Display summary statistics
-print("\nAverage Spending per Customer:")
-print(avg_spending.describe())
 
 # Visualize distribution
 plt.figure(figsize=(8, 5))
